@@ -176,7 +176,6 @@ def main():
 
             dis = (torch.from_numpy(max_distance).type(dtype)).to(device)
 
-            # soft learning
             loss_certify = torch.sum(dis * dis)
 
 # ****************** L1 regularization***********************************************************
