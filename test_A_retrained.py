@@ -652,14 +652,12 @@ def pgd_test(data_loader, model, epsilon_try):
 
         # adv_x = adv_LINF(img_var, target_var, model, criterion,eps,step_size,iterations)
 
-        ################ PGD 的函数里面图片像素必须是0-1 #########################################################
         adv_x = get_adv_examples_LINF(img_var, target_var, model, criterion,eps,step_size,iterations)
                                    # (data, target, model, lossfunc, eps, step_size, iterations)
 
         adv_x = adv_x.data.detach().cpu().numpy()
         # print(np.max(adv_x - im_data))
-
-        # 送入模型必须得是 0-255之间！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+        
         adv_x *= 255
         adv_x = np_to_variable(adv_x, is_cuda=True, is_training=False)
 
@@ -753,4 +751,4 @@ if __name__ == '__main__':
 
     print(model_path)
 
-    epoch_robust_bound(data_loader, model, device, epsilon_try=0)
+    epoch_robust_bound(data_loader, model, device, epsilon_try=0.25)
