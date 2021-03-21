@@ -108,9 +108,8 @@ def main():
     optimizer = torch.optim.Adam(filter(lambda p: p.requires_grad, model.parameters()), lr=lr)
 
     epsilon_initial = 1/255
-    # epsilon 代表 最终要加在图片上的perturbation的norm最终大小。文中说要在train的过程中慢慢从0增大到epsilon
-
-    epsilon_schedule = generate_epsilon_schedule(epsilon_initial)  # 因此通过这个函数实现了一个list来查找
+    
+    epsilon_schedule = generate_epsilon_schedule(epsilon_initial)
     kappa = generate_kappa_schedule()
 
     criterion = nn.MSELoss(size_average=False).to(device)
@@ -140,9 +139,7 @@ def main():
         certify_loss_epoch = 0.0
         reg_loss_epoch = 0.0
         normal_loss_store_epoch = 0.0
-
-        # 设置的感觉：L1 reg loss : normal loss = 1:5
-
+        
         for blob in train_loader:
 
             im_data = blob['data']  # (1,1,704,1024)
