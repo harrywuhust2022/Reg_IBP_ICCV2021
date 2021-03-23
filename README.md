@@ -23,3 +23,8 @@ This is an official implementation of submitted ICCV2021 paper "Reg-IBP: Efficie
 # For Reproducibility: Our Reg-IBP trained models (CIFAR, MNIST) are available at:
 Baidu Disk: https://pan.baidu.com/s/1TZ8Ndqw6-6bG1bTihJP3ZA
 code: hary
+
+# Dropbox for models:
+trained models for MNIST and CIFAR10 datasets: \
+(Dropbox) \
+https://www.dropbox.com/sh/hn14wlkvg1m75k2/AABqXGC3PBjLTyU7lbQtHLDVa?dl=0
